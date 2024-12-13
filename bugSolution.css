@@ -1,0 +1,23 @@
+/* Correct usage of calc() */
+#element {
+  width: calc(100vw - 20px); /* Use vw for viewport width */
+  height: calc(100vh - 50px);/* Use vh for viewport height */
+  /*Avoid complex nested calc() if possible */
+  /*Example of good nesting with clear precedence */ 
+  margin: calc((100vh - 50px) / 2);
+}
+
+/* Define parent element width if using percentages in calc() */
+.parent {
+  width: 800px;
+}
+
+.child {
+  width: calc(50% - 10px);
+}
+
+/* Avoid mixing units without proper conversion */
+/*Instead of this*/
+/*width: calc(50% + 10em);*/
+/*Do this instead*/
+width: calc(50% + 160px); /* Assuming 1em ≈ 16px */
